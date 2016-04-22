@@ -1,7 +1,6 @@
 import random
 
 if __name__ == "__main__":
-    # 街と街が被らないように生成する(dictを用いる?)
     city_dict = {}
     count = 0
     while len(city_dict) < 100:
