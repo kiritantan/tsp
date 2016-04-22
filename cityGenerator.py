@@ -1,14 +1,12 @@
 import random
 
 if __name__ == "__main__":
+    random.seed(1)
     city_dict = {}
-    count = 0
-    while len(city_dict) < 100:
-        x = random.randrange(100)
-        y = random.randrange(100)
+    loop_number = 1000
+    while len(city_dict) < loop_number:
+        x = round(random.random() * (10**5),4)
+        y = round(random.random() * (10**5),4)
         if not "{0},{1}".format(x,y) in city_dict :
-            print("{0},{1}".format(x, y))
+            print("{0} {1} {2}".format(len(city_dict),x, y))
             city_dict["{0},{1}".format(x,y)] = True
-        count += 1
-
-    print(count)
