@@ -1,7 +1,12 @@
 from math import sqrt
+import sys
 
 
 class BaseSolver(object):
+
+    def __init__(self):
+        self.length = sys.maxsize
+        self.circuit = []
 
     def solve(self, city_list, isVisualized=False):
         raise Exception("plese set solve algorithm")
