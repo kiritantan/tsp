@@ -9,5 +9,5 @@ if __name__ == "__main__":
     generator.generate(file_name)
     parser = Parser()
     city_list = parser.parse(file_name)
-    user = SolverUser()
-    user.solve_with_list(city_list)
+    user = SolverUser("Counting")
+    print(user.solve_with_list(city_list))
