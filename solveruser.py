@@ -20,4 +20,4 @@ class SolverUser():
 
     # 問題を解く
     def __solve(self, city_list):
-        self.solver.solve(self, city_list)
+        self.solver.solve(city_list)
