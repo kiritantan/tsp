@@ -6,7 +6,7 @@ class CityGenerator():
         self.file_name = name + ".ssv"
         random.seed(1)
         city_dict = {}
-        loop_number = 1000
+        loop_number = 20
         f = open(self.file_name, 'w')
         while len(city_dict) < loop_number:
             x = round(random.random() * (10 ** 5), 4)
