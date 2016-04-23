@@ -5,22 +5,24 @@ import sys
 class BaseSolver(object):
 
     def __init__(self):
-        self.length = sys.maxsize
+        self.city_cost_matrix = []
+        self.max_cost = sys.maxsize
         self.circuit = []
 
     def solve(self, city_list, isVisualized=False):
         raise Exception("plese set solve algorithm")
 
     def create_matrix(self, city_list):
-        dist_matrix = []
+        self.city_cost_matrix = []
         for i in range(0, len(city_list)):
             dist_list = []
             for j in range(0, len(city_list)):
-                dist_list.append(self.__disc(city_list[i],city_list[j]))
-            dist_matrix.append(dist_list)
-        return dist_matrix
+                dist_list.append(self.disc(city_list[i],city_list[j]))
+            self.city_cost_matrix.append(dist_list)
 
     def disc(self, city1, city2):
         dx = city1[0]-city2[0]
         dy = city1[1]-city2[1]
         return int(sqrt(dx**2+dy**2)+0.5)
+
+
