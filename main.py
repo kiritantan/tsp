@@ -8,6 +8,6 @@ if __name__ == "__main__":
     generator = CityGenerator()
     generator.generate(file_name)
     parser = Parser()
-    print(parser.parse(file_name))
+    city_list = parser.parse(file_name)
     user = SolverUser()
-    user.solve_with_cost()
+    user.solve_with_list(city_list)
