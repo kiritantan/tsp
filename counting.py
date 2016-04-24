@@ -25,6 +25,7 @@ class Counting(BaseSolver):
             sum += self.city_cost_matrix[city_number_list[index]][city_number_list[(index+1)]]
         return sum
 
+    # 同じ経路を逆周りするものも混じっていて(n-1)!になってるので、それを削って(n-1)!/2の計算量にしたい
     def calc_permutation(self, number_of_city=1):
         self.city_number_permutation = []
         city_number_list = [x for x in range(0, number_of_city)][1:]
