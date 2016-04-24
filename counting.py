@@ -3,10 +3,12 @@ import itertools
 
 
 class Counting(BaseSolver):
+
     def __init__(self):
         self.city_number_permutation = []
         super().__init__()
 
+    #O(n!)
     def solve(self, city_list, isVisualized=False):
         self.calc_permutation(len(city_list))
         super().create_matrix(city_list)
@@ -18,6 +20,7 @@ class Counting(BaseSolver):
                 self.circuit = elem
         return self.circuit
 
+    #O(n)
     def cost_evaluate(self, city_number_list):
         sum = 0
         sum_of_city = len(city_number_list) - 1
@@ -26,6 +29,7 @@ class Counting(BaseSolver):
         return sum
 
     # 同じ経路を逆周りするものも混じっていて(n-1)!になってるので、それを削って(n-1)!/2の計算量にしたい
+    # O(n!)
     def calc_permutation(self, number_of_city=1):
         self.city_number_permutation = []
         city_number_list = [x for x in range(0, number_of_city)][1:]

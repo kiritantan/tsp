@@ -12,6 +12,7 @@ class BaseSolver(object):
     def solve(self, city_list, isVisualized=False):
         raise Exception("plese set solve algorithm")
 
+    #O(n^2)
     def create_matrix(self, city_list):
         self.city_cost_matrix = []
         for i in range(0, len(city_list)):
@@ -20,6 +21,7 @@ class BaseSolver(object):
                 dist_list.append(self.disc(city_list[i],city_list[j]))
             self.city_cost_matrix.append(dist_list)
 
+    #O(1)
     def disc(self, city1, city2):
         dx = city1[0]-city2[0]
         dy = city1[1]-city2[1]
