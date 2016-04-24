@@ -12,12 +12,15 @@ class Counting(BaseSolver):
     def solve(self, city_list, isVisualized=False):
         self.calc_permutation(len(city_list))
         super().create_matrix(city_list)
+        #dict = {}
         for elem in self.city_number_permutation:
             cost = self.cost_evaluate(elem)
+            #dict[cost] = True
             if self.max_cost > cost:
                 print("{0} -> {1}".format(self.max_cost, cost))
                 self.max_cost = cost
                 self.circuit = elem
+        #print(dict)
         return self.circuit
 
     #O(n)
