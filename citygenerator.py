@@ -2,13 +2,12 @@ import random
 
 
 class CityGenerator():
-    def generate(self, name='city') -> object:
+    def generate(self, name='city', city_number=10) -> object:
         self.file_name = name + ".ssv"
         random.seed(1)
         city_dict = {}
-        loop_number = 10
         f = open(self.file_name, 'w')
-        while len(city_dict) < loop_number:
+        while len(city_dict) < city_number:
             x = round(random.random() * (10 ** 3), 4)
             y = round(random.random() * (10 ** 3), 4)
             if not "{0},{1}".format(x, y) in city_dict:
