@@ -13,6 +13,7 @@ class Counting(BaseSolver):
         for elem in self.city_number_permutation:
             cost = self.cost_evaluate(elem)
             if self.max_cost > cost:
+                print("{0} -> {1}".format(self.max_cost, cost))
                 self.max_cost = cost
                 self.circuit = elem
         return self.circuit
