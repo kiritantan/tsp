@@ -2,8 +2,8 @@ import random
 
 
 class CityGenerator():
-    def generate(self, name='city', city_number=10) -> object:
-        self.file_name = name + ".ssv"
+    def generate(self, name='city', city_number=10):
+        self.file_name = name + '.ssv'
         random.seed(1)
         city_dict = {}
         f = open(self.file_name, 'w')
