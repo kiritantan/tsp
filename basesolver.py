@@ -9,7 +9,7 @@ class BaseSolver(object):
         self.max_cost = sys.maxsize
         self.circuit = []
 
-    def solve(self, city_list, isVisualized=False):
+    def solve(self, city_list):
         raise Exception("plese set solve algorithm")
 
     #O(n^2)

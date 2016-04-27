@@ -9,7 +9,7 @@ class Counting(BaseSolver):
         super().__init__()
 
     #O(n!)
-    def solve(self, city_list, isVisualized=False):
+    def solve(self, city_list):
         self.calc_permutation(len(city_list))
         #self.create_matrix(city_list)
         #dict = {}
