@@ -27,7 +27,7 @@ class SolverUser():
 
     # 問題を解き、結果を最短経路のコストで表示する
     def solve_with_cost(self, city_list):
-        pass
+        return self.__solve(city_list)[1]
 
     # 問題を解く
     def __solve(self, city_list):
