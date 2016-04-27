@@ -21,7 +21,7 @@ class Counting(BaseSolver):
                 self.max_cost = cost
                 self.circuit = elem
         #print(dict)
-        return self.circuit
+        return (self.circuit, self.max_cost)
 
     #O(n)
     def cost_evaluate(self, city_number_list, city_coordinate_list):
