@@ -1,13 +1,21 @@
+import sys
 from basesolver import BaseSolver
 from counting import Counting
+from dynamicprogramming import DynamicProgramming
 
 
 class SolverUser():
     def __init__(self, solver_name="BaseSolver"):
         if solver_name == "BaseSolver":
             self.solver = BaseSolver()
-        if solver_name == "Counting":
+        elif solver_name == "Counting":
             self.solver = Counting()
+        elif solver_name == "DynamicProgramming":
+            self.solver = DynamicProgramming()
+        else:
+            print("such solver doesn'y exit!")
+            sys.exit()
+
 
     # 問題を解き、結果を最短系で都市をつなげたグラフで表示する
     def solve_with_graph(self, city_list):
