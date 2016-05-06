@@ -1,5 +1,4 @@
 from basesolver import BaseSolver
-import sys
 
 #0を起点に路を返すようにする。
 class DynamicProgramming(BaseSolver):
@@ -7,7 +6,7 @@ class DynamicProgramming(BaseSolver):
     def solve(self, city_list):
         city_size = len(city_list)
         SMAX = 1 << city_size
-        city_cost_matrix = [[[sys.maxsize, 0] for _ in range(SMAX)] for _ in range(city_size)]
+        city_cost_matrix = [[[self.max_cost, 0] for _ in range(SMAX)] for _ in range(city_size)]
 
         for i in range(city_size-1):
             city_cost_matrix[i][1 << i][0] = super().disc(city_list[i], city_list[city_size-1])
