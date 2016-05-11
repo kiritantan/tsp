@@ -1,5 +1,6 @@
 from basesolver import BaseSolver
 
+
 #0を起点に路を返すようにする。
 class DynamicProgramming(BaseSolver):
 
