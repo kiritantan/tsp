@@ -1,4 +1,5 @@
 
+
 class Parser():
     def parse(self,file_name="city"):
         file = open(file_name+".ssv")
