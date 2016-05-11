@@ -2,9 +2,9 @@ import random
 
 
 class CityGenerator():
-    def generate(self, name='city', city_number=10):
+    def generate(self, name='city', city_number=10, random_seed=1):
         self.file_name = name + '.ssv'
-        random.seed(1)
+        random.seed(random_seed)
         city_dict = {}
         f = open(self.file_name, 'w')
         while len(city_dict) < city_number:
