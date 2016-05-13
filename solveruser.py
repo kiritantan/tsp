@@ -2,6 +2,7 @@ from basesolver import BaseSolver
 from counting import Counting
 from dynamicprogramming import DynamicProgramming
 from annealing import Annealing
+import matplotlib.pyplot as plt
 
 class SolverUser():
     def __init__(self, solver_name="BaseSolver"):
@@ -17,9 +18,16 @@ class SolverUser():
 
     # 問題を解き、結果を最短系で都市をつなげたグラフで表示する
     def solve_with_graph(self, city_list):
-        pass
+        circuit = self.__solve(city_list)[0]
+        graph_dot_x = []
+        graph_dot_y = []
+        for vertex in circuit:
+            graph_dot_x.append(city_list[vertex][0])
+            graph_dot_y.append(city_list[vertex][1])
+        plt.plot(graph_dot_x, graph_dot_y, '-o')
+        plt.show()
 
-    def solver_with_list_and_cost(self, city_list):
+    def solve_with_list_and_cost(self, city_list):
         return self.__solve(city_list)
 
     # 問題を解き、結果を最短経路のリストで表示する
