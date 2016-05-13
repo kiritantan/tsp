@@ -1,20 +1,18 @@
-import sys
 from basesolver import BaseSolver
 from counting import Counting
 from dynamicprogramming import DynamicProgramming
-
+from annealing import Annealing
 
 class SolverUser():
     def __init__(self, solver_name="BaseSolver"):
-        if solver_name == "BaseSolver":
-            self.solver = BaseSolver()
-        elif solver_name == "Counting":
+        if solver_name == "Counting":
             self.solver = Counting()
         elif solver_name == "DynamicProgramming":
             self.solver = DynamicProgramming()
+        elif solver_name == "Annealing":
+            self.solver = Annealing()
         else:
-            print("such solver doesn'y exit!")
-            sys.exit()
+            self.solver = BaseSolver()
 
 
     # 問題を解き、結果を最短系で都市をつなげたグラフで表示する
