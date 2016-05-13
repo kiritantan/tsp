@@ -16,8 +16,8 @@ class Counting(BaseSolver):
                 # 変更を出力する
                 #print("{0} -> {1}".format(self.max_cost, cost))
                 self.max_cost = cost
-                self.circuit = elem
-        return (self.circuit, self.max_cost)
+                circuit = elem
+        return (circuit, self.max_cost)
 
     def cost_evaluate(self, circuit, city_list):
         sum = 0
