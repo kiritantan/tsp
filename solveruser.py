@@ -19,6 +19,9 @@ class SolverUser():
     def solve_with_graph(self, city_list):
         pass
 
+    def solver_with_list_and_cost(self, city_list):
+        return self.__solve(city_list)
+
     # 問題を解き、結果を最短経路のリストで表示する
     def solve_with_list(self, city_list):
         return self.__solve(city_list)[0]
