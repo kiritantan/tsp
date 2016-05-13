@@ -19,11 +19,11 @@ class Counting(BaseSolver):
                 self.circuit = elem
         return (self.circuit, self.max_cost)
 
-    def cost_evaluate(self, city_number_list, city_coordinate_list):
+    def cost_evaluate(self, circuit, city_list):
         sum = 0
-        sum_of_city = len(city_number_list) - 1
-        for index in range(0,sum_of_city):
-            sum += self.disc(city_coordinate_list[city_number_list[index]], city_coordinate_list[city_number_list[index+1]])
+        city_num = len(circuit)
+        for index in range(city_num):
+            sum += self.disc(city_list[circuit[index]], city_list[circuit[(index+1)%city_num]])
         return sum
 
     # 同じ経路を逆周りするものも混じっていて(n-1)!になってるので、それを削って(n-1)!/2の計算量にしたい
