@@ -18,4 +18,8 @@ class BaseSolver(object):
         dy = city1[1]-city2[1]
         return int(sqrt(dx**2+dy**2)+0.5)
 
+    def sort_circuit(self, circuit):
+        index = circuit.index(0)
+        return circuit[index:] + circuit[:index]
+
 

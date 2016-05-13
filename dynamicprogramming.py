@@ -36,7 +36,8 @@ class DynamicProgramming(BaseSolver):
             v ^= (1 << p)
             p = q
 
-        route.append(start)
+        route = self.sort_circuit(route)
+        route.append(0)
 
         return route
 
