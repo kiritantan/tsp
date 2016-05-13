@@ -10,7 +10,7 @@ class DynamicProgramming(BaseSolver):
         city_cost_matrix = [[[self.max_cost, 0] for _ in range(SMAX)] for _ in range(city_size)]
 
         for i in range(city_size-1):
-            city_cost_matrix[i][1 << i][0] = super().disc(city_list[i], city_list[city_size-1])
+            city_cost_matrix[i][1 << i][0] = self.disc(city_list[i], city_list[city_size-1])
             city_cost_matrix[i][1 << i][1] = city_size - 1
 
         for s in range(1, SMAX):
@@ -18,7 +18,7 @@ class DynamicProgramming(BaseSolver):
                 if not ((1 << i) & s): continue
                 for j in range(city_size):
                     if ((1 << j) & s): continue
-                    tmp = city_cost_matrix[i][s][0] + super().disc(city_list[i], city_list[j])
+                    tmp = city_cost_matrix[i][s][0] + self.disc(city_list[i], city_list[j])
                     if tmp < city_cost_matrix[j][s | (1 << j)][0]:
                         city_cost_matrix[j][s | (1 << j)][0] = tmp
                         city_cost_matrix[j][s | (1 << j)][1] = i
