@@ -19,13 +19,6 @@ class Counting(BaseSolver):
                 circuit = elem
         return (circuit, self.max_cost)
 
-    def cost_evaluate(self, circuit, city_list):
-        sum = 0
-        city_num = len(circuit)
-        for index in range(city_num):
-            sum += self.disc(city_list[circuit[index]], city_list[circuit[(index+1)%city_num]])
-        return sum
-
     # 同じ経路を逆周りするものも混じっていて(n-1)!になってるので、それを削って(n-1)!/2の計算量にしたい
     def calc_permutation(self, number_of_city=1):
         self.city_number_permutation = []

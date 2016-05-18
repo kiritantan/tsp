@@ -20,3 +20,10 @@ class BaseSolver(object):
     def sort_circuit(self, circuit):
         index = circuit.index(0)
         return circuit[index:] + circuit[:index]
+
+    def cost_evaluate(self, circuit, city_list):
+        sum = 0
+        city_num = len(circuit)
+        for index in range(city_num):
+            sum += self.disc(city_list[circuit[index]], city_list[circuit[(index + 1) % city_num]])
+        return sum

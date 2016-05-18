@@ -59,13 +59,6 @@ class Annealing(BaseSolver):
                     provisional_neighboor.append(j)
             self.neighboor.append(provisional_neighboor[:neighboor_num-1])
 
-    def cost_evaluate(self, circuit, city_list):
-        sum = 0
-        city_num = len(circuit)
-        for index in range(city_num):
-            sum += self.disc(city_list[circuit[index]], city_list[circuit[(index+1)%city_num]])
-        return sum
-
     def next_city(self, i, circuit):
         return circuit[(circuit.index(i) + 1) % len(circuit)]
 
