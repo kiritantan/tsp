@@ -20,19 +20,16 @@ class DoubleOpt(BaseSolver):
         return euler_route
 
     def __rec_create_euler_route(self, mst, city):
-        if len(mst) == 0:
-            return []
         city_edges = [edge for edge in mst if edge[0] == city]
+        if len(city_edges) == 0:
+            return []
         city_not_edges = mst
         for edge in city_edges:
             city_not_edges = list(filter(lambda n: n != edge, city_not_edges))
         eulor_route = []
         for edge in city_edges:
             eulor_route.append(edge[1])
-            for next_edge in city_not_edges:
-                if next_edge[0] == edge[1]:
-                    eulor_route.extend(self.__rec_create_euler_route(city_not_edges, edge[1]))
-                    break
+            eulor_route.extend(self.__rec_create_euler_route(city_not_edges, edge[1]))
             eulor_route.append(edge[0])
         return eulor_route
 
