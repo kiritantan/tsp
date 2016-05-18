@@ -2,16 +2,19 @@ from basesolver import BaseSolver
 from counting import Counting
 from dynamicprogramming import DynamicProgramming
 from annealing import Annealing
+from double_opt import DoubleOpt
 import matplotlib.pyplot as plt
 
 class SolverUser():
-    def __init__(self, solver_name="BaseSolver"):
+    def __init__(self, solver_name = "BaseSolver"):
         if solver_name == "Counting":
             self.solver = Counting()
         elif solver_name == "DynamicProgramming":
             self.solver = DynamicProgramming()
         elif solver_name == "Annealing":
             self.solver = Annealing()
+        elif solver_name == "DoubleOpt":
+            self.solver = DoubleOpt()
         else:
             self.solver = BaseSolver()
 
