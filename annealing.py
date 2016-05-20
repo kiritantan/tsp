@@ -6,9 +6,9 @@ class Annealing(BaseSolver):
 
     def __init__(self):
         random.seed()
-        self.t_start = 100000.
-        self.t_end = 100.
-        self.t_factor = 0.98
+        self.t_start = 1000.
+        self.t_end = 10.
+        self.t_factor = 0.99
         self.size = 5
         self.neighboor = []
         super().__init__()
