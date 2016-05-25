@@ -1,5 +1,6 @@
 from basesolver import BaseSolver
 import random
+import math
 
 
 class Annealing(BaseSolver):
@@ -7,7 +8,7 @@ class Annealing(BaseSolver):
     def __init__(self):
         random.seed()
         self.t_start = 1000.
-        self.t_end = 10.
+        self.t_end = 0.1
         self.t_factor = 0.99
         self.size = 5
         self.neighboor = []
@@ -36,7 +37,7 @@ class Annealing(BaseSolver):
                             continue
                         tmp = self.disc(city_list[a], city_list[b]) + self.disc(city_list[c], city_list[d]) - \
                               self.disc(city_list[a], city_list[c]) - self.disc(city_list[b], city_list[d])
-                        if tmp >= 0 or random.random() < 1 + tmp / t_now:
+                        if tmp >= 0 or random.random() < math.exp(tmp / t_now):
                             self.flip_cities(b, c, circuit)
             t_now *= self.t_factor
         circuit = self.sort_circuit(circuit)
