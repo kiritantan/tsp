@@ -3,6 +3,7 @@ from counting import Counting
 from dynamicprogramming import DynamicProgramming
 from annealing import Annealing
 from double_opt import DoubleOpt
+from hillclimbing import HillClimbing
 import matplotlib.pyplot as plt
 
 class SolverUser():
@@ -15,6 +16,8 @@ class SolverUser():
             self.solver = Annealing()
         elif solver_name == "DoubleOpt":
             self.solver = DoubleOpt()
+        elif solver_name == "HillClimbing":
+            self.solver = HillClimbing();
         else:
             self.solver = BaseSolver()
 
