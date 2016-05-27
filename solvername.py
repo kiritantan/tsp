@@ -1,12 +1,16 @@
 import enum
 
-
 class SolverName(enum.Enum):
-    BaseSolver = 1
-    Counting = 2
-    DynamicProgramming = 3
-    Annealing = 4
-    DoubleOpt = 5
-    HillClimbing = 6
 
+    def __new__(cls):
+        value = len(cls.__members__) + 1
+        obj = object.__new__(cls)
+        obj._value_ = value
+        return obj
 
+    BaseSolver = ()
+    Counting = ()
+    DynamicProgramming = ()
+    Annealing = ()
+    DoubleOpt = ()
+    HillClimbing = ()
