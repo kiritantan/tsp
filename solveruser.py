@@ -4,19 +4,20 @@ from dynamicprogramming import DynamicProgramming
 from annealing import Annealing
 from double_opt import DoubleOpt
 from hillclimbing import HillClimbing
+from solvername import SolverName
 import matplotlib.pyplot as plt
 
 class SolverUser():
-    def __init__(self, solver_name = "BaseSolver"):
-        if solver_name == "Counting":
+    def __init__(self, solver_name=SolverName.BaseSolver):
+        if solver_name.name == "Counting":
             self.solver = Counting()
-        elif solver_name == "DynamicProgramming":
+        elif solver_name.name == "DynamicProgramming":
             self.solver = DynamicProgramming()
-        elif solver_name == "Annealing":
+        elif solver_name.name == "Annealing":
             self.solver = Annealing()
-        elif solver_name == "DoubleOpt":
+        elif solver_name.name == "DoubleOpt":
             self.solver = DoubleOpt()
-        elif solver_name == "HillClimbing":
+        elif solver_name.name == "HillClimbing":
             self.solver = HillClimbing();
         else:
             self.solver = BaseSolver()
