@@ -1,5 +1,6 @@
 from math import sqrt
 import sys
+import time
 
 
 class BaseSolver(object):
@@ -27,3 +28,9 @@ class BaseSolver(object):
         for index in range(city_num):
             sum += self.disc(city_list[circuit[index]], city_list[circuit[(index + 1) % city_num]])
         return sum
+
+    def start_time(self):
+        return time.clock()
+
+    def end_time(self, start):
+        return time.clock() - start

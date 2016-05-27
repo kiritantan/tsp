@@ -21,7 +21,6 @@ class SolverUser():
         else:
             self.solver = BaseSolver()
 
-
     # 問題を解き、結果を最短系で都市をつなげたグラフで表示する
     def solve_with_graph(self, city_list):
         circuit = self.__solve(city_list)[0]
@@ -33,8 +32,11 @@ class SolverUser():
         plt.plot(graph_dot_x, graph_dot_y, '-o')
         plt.show()
 
-    def solve_with_list_and_cost(self, city_list):
+    def solve_with_list_and_cost_and_time(self, city_list):
         return self.__solve(city_list)
+
+    def solve_with_list_and_cost(self, city_list):
+        return self.__solve(city_list)[:2]
 
     # 問題を解き、結果を最短経路のリストで表示する
     def solve_with_list(self, city_list):
@@ -43,6 +45,9 @@ class SolverUser():
     # 問題を解き、結果を最短経路のコストで表示する
     def solve_with_cost(self, city_list):
         return self.__solve(city_list)[1]
+
+    def solve_with_time(self, city_list):
+        return self.__solve(city_list)[2]
 
     # 問題を解く
     def __solve(self, city_list):

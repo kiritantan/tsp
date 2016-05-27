@@ -5,11 +5,13 @@ import sys
 class DoubleOpt(BaseSolver):
 
     def solve(self, city_list):
+        start = self.start_time()
         route_cost_matrix = (self.create_rout_cost_matrix(city_list))
         mst = self.create_mst(city_list, route_cost_matrix)
         euler_route = self.create_euler_route(mst)
         shortcut_euler_route = self.create_shortcut_euler_route(euler_route)
-        return (shortcut_euler_route, self.cost_evaluate(shortcut_euler_route, city_list))
+        end = self.end_time(start)
+        return (shortcut_euler_route, self.cost_evaluate(shortcut_euler_route, city_list), end)
 
     def create_shortcut_euler_route(self, euler_route):
         return sorted(set(euler_route), key = euler_route.index) + [0]

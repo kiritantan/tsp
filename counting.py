@@ -9,6 +9,7 @@ class Counting(BaseSolver):
         super().__init__()
 
     def solve(self, city_list):
+        start = self.start_time()
         self.calc_permutation(len(city_list))
         for elem in self.city_number_permutation:
             cost = self.cost_evaluate(elem, city_list)
@@ -17,7 +18,8 @@ class Counting(BaseSolver):
                 #print("{0} -> {1}".format(self.max_cost, cost))
                 self.max_cost = cost
                 circuit = elem
-        return (circuit, self.max_cost)
+        end = self.end_time(start)
+        return (circuit, self.max_cost, end)
 
     # 同じ経路を逆周りするものも混じっていて(n-1)!になってるので、それを削って(n-1)!/2の計算量にしたい
     def calc_permutation(self, number_of_city=1):

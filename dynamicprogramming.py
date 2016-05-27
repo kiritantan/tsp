@@ -5,6 +5,7 @@ from basesolver import BaseSolver
 class DynamicProgramming(BaseSolver):
 
     def solve(self, city_list):
+        start = self.start_time()
         city_size = len(city_list)
         SMAX = 1 << city_size
         city_cost_matrix = [[[self.max_cost, 0] for _ in range(SMAX)] for _ in range(city_size)]
@@ -22,8 +23,8 @@ class DynamicProgramming(BaseSolver):
                     if tmp < city_cost_matrix[j][s | (1 << j)][0]:
                         city_cost_matrix[j][s | (1 << j)][0] = tmp
                         city_cost_matrix[j][s | (1 << j)][1] = i
-
-        return (self.get_route(city_cost_matrix, city_size, city_size - 1), city_cost_matrix[city_size - 1][SMAX - 1][0])
+        end = self.end_time(start)
+        return (self.get_route(city_cost_matrix, city_size, city_size - 1), city_cost_matrix[city_size - 1][SMAX - 1][0], end)
 
     def get_route(self, city_cost_matrix, city_number, start):
         route = [start]
