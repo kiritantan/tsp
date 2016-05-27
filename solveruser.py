@@ -32,7 +32,7 @@ class SolverUser():
         plt.plot(graph_dot_x, graph_dot_y, '-o')
         plt.show()
 
-    def solve_with_list_and_cost_and_time(self, city_list):
+    def solve_with_all_info(self, city_list):
         return self.__solve(city_list)
 
     def solve_with_list_and_cost(self, city_list):
@@ -48,6 +48,9 @@ class SolverUser():
 
     def solve_with_time(self, city_list):
         return self.__solve(city_list)[2]
+
+    def solve_with_other(self, city_list):
+        return self.__solve(city_list)[3:]
 
     # 問題を解く
     def __solve(self, city_list):
