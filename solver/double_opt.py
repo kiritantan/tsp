@@ -8,7 +8,7 @@ from mstname import MstName
 class DoubleOpt(BaseSolver):
 
     def solve(self, city_list):
-        mst_algorithm = MstName.Kruskal
+        mst_algorithm = MstName.Prim
         start = self.start_time()
         route_cost_matrix = (self.create_rout_cost_matrix(city_list))
         mst = self.create_mst(city_list, route_cost_matrix, mst_algorithm)
