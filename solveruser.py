@@ -8,16 +8,16 @@ from solvername import SolverName
 import matplotlib.pyplot as plt
 
 class SolverUser():
-    def __init__(self, solver_name=SolverName.BaseSolver):
-        if solver_name.name == "Counting":
+    def __init__(self, solver=SolverName.BaseSolver):
+        if solver.name == "Counting":
             self.solver = Counting()
-        elif solver_name.name == "DynamicProgramming":
+        elif solver.name == "DynamicProgramming":
             self.solver = DynamicProgramming()
-        elif solver_name.name == "Annealing":
+        elif solver.name == "Annealing":
             self.solver = Annealing()
-        elif solver_name.name == "DoubleOpt":
+        elif solver.name == "DoubleOpt":
             self.solver = DoubleOpt()
-        elif solver_name.name == "HillClimbing":
+        elif solver.name == "HillClimbing":
             self.solver = HillClimbing();
         else:
             self.solver = BaseSolver()
