@@ -1,21 +1,28 @@
-import sys
-
+from mst.basemst import BaseMst
+from mst.prim import Prim
+from mst.kruskal import Kruskal
 from solver.basesolver import BaseSolver
+from mstname import MstName
 
 
 class DoubleOpt(BaseSolver):
 
     def solve(self, city_list):
+        mst_algorithm = MstName.Kruskal
         start = self.start_time()
         route_cost_matrix = (self.create_rout_cost_matrix(city_list))
-        mst = self.create_mst(city_list, route_cost_matrix)
+        mst = self.create_mst(city_list, route_cost_matrix, mst_algorithm)
+        print(mst_algorithm.name)
+        print(mst)
         euler_route = self.create_euler_route(mst)
+        print('euler_route')
+        print(euler_route)
         shortcut_euler_route = self.create_shortcut_euler_route(euler_route)
         end = self.end_time(start)
         return (shortcut_euler_route, self.cost_evaluate(shortcut_euler_route, city_list), end)
 
     def create_shortcut_euler_route(self, euler_route):
-        return sorted(set(euler_route), key = euler_route.index) + [0]
+        return sorted(set(euler_route), key=euler_route.index) + [0]
 
     def create_euler_route(self, mst):
         euler_route = [0]
@@ -36,21 +43,13 @@ class DoubleOpt(BaseSolver):
             eulor_route.append(edge[0])
         return eulor_route
 
-    def create_mst(self, city_list, route_cost_matrix):
-        city_number = len(city_list)
-        v_set = [i for i in range(city_number)]
-        v_including = [0]
-        e_including = []
-        while (len(v_including) < len(v_set)):
-            minimum_cost_route = (sys.maxsize, (0, 0))
-            for i in v_including:
-                v_not_including = list(set(v_set) - set(v_including))
-                for j in v_not_including:
-                    if route_cost_matrix[i][j] < minimum_cost_route[0]:
-                        minimum_cost_route = (route_cost_matrix[i][j], (i, j))
-            v_including.append(minimum_cost_route[1][1])
-            e_including.append(minimum_cost_route[1])
-        return e_including
+    def create_mst(self, city_list, route_cost_matrix, mst_algorithm=MstName.BaseMst):
+        if mst_algorithm.name == 'Prim':
+            return Prim().create_mst(city_list, route_cost_matrix)
+        elif mst_algorithm.name == 'Kruskal':
+            return Kruskal().create_mst(city_list, route_cost_matrix)
+        else:
+            return BaseMst().create_mst(city_list, route_cost_matrix)
 
     def create_rout_cost_matrix(self, city_list):
         city_number = len(city_list)
