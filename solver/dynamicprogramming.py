@@ -1,4 +1,4 @@
-from basesolver import BaseSolver
+from solver.basesolver import BaseSolver
 
 
 #0を起点に路を返すようにする。

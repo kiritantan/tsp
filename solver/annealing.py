@@ -1,6 +1,7 @@
-from basesolver import BaseSolver
-import random
 import math
+import random
+
+from solver.basesolver import BaseSolver
 
 
 class Annealing(BaseSolver):

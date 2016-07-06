@@ -1,4 +1,4 @@
-from basesolver import BaseSolver
+from solver.basesolver import BaseSolver
 
 
 class HillClimbing(BaseSolver):

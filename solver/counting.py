@@ -1,5 +1,6 @@
-from basesolver import BaseSolver
 import itertools
+
+from solver.basesolver import BaseSolver
 
 
 class Counting(BaseSolver):

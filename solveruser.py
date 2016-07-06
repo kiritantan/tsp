@@ -1,11 +1,13 @@
-from basesolver import BaseSolver
-from counting import Counting
-from dynamicprogramming import DynamicProgramming
-from annealing import Annealing
-from double_opt import DoubleOpt
-from hillclimbing import HillClimbing
-from solvername import SolverName
 import matplotlib.pyplot as plt
+
+from solver.annealing import Annealing
+from solver.basesolver import BaseSolver
+from solver.counting import Counting
+from solver.double_opt import DoubleOpt
+from solver.dynamicprogramming import DynamicProgramming
+from solver.hillclimbing import HillClimbing
+from solvername import SolverName
+
 
 class SolverUser():
     def __init__(self, solver=SolverName.BaseSolver):

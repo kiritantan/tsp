@@ -1,5 +1,6 @@
-from basesolver import BaseSolver
 import sys
+
+from solver.basesolver import BaseSolver
 
 
 class DoubleOpt(BaseSolver):
