@@ -1,6 +1,5 @@
 from mst.basemst import BaseMst
 from mst.prim import Prim
-from mst.kruskal import Kruskal
 from solver.basesolver import BaseSolver
 from mstname import MstName
 
