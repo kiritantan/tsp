@@ -14,3 +14,4 @@ class SolverName(enum.Enum):
     Annealing = ()
     DoubleOpt = ()
     HillClimbing = ()
+    AntSystem = ()

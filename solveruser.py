@@ -6,6 +6,7 @@ from solver.counting import Counting
 from solver.double_opt import DoubleOpt
 from solver.dynamicprogramming import DynamicProgramming
 from solver.hillclimbing import HillClimbing
+from solver.antsystem import AntSystem
 from solvername import SolverName
 
 
@@ -20,7 +21,9 @@ class SolverUser():
         elif solver.name == "DoubleOpt":
             self.solver = DoubleOpt()
         elif solver.name == "HillClimbing":
-            self.solver = HillClimbing();
+            self.solver = HillClimbing()
+        elif solver.name == "AntSystem":
+            self.solver = AntSystem()
         else:
             self.solver = BaseSolver()
 
