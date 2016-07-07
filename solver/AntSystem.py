@@ -29,7 +29,7 @@ class AntSystem(BaseSolver):
     def create_ants(self, ground):
         ants = []
         for _ in range(self.ANT_NUMBER):
-            ant = Ant(ground, 1, self.ALPHA, self.BETA)
+            ant = Ant(ground, random.randrange(len(ground.city_list)), self.ALPHA, self.BETA)
             ants.append(ant)
         return ants
 
