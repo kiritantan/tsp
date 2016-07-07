@@ -15,3 +15,4 @@ class SolverName(enum.Enum):
     DoubleOpt = ()
     HillClimbing = ()
     AntSystem = ()
+    AntColonySystem = ()
