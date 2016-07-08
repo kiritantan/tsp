@@ -41,8 +41,6 @@ class DoubleOpt(BaseSolver):
     def create_mst(self, city_list, route_cost_matrix, mst_algorithm=MstName.BaseMst):
         if mst_algorithm.name == 'Prim':
             return Prim().create_mst(city_list, route_cost_matrix)
-        elif mst_algorithm.name == 'Kruskal':
-            return Kruskal().create_mst(city_list, route_cost_matrix)
         else:
             return BaseMst().create_mst(city_list, route_cost_matrix)
 
