@@ -8,7 +8,6 @@ class AntColonySystem(BaseSolver):
 
     def __init__(self):
         super().__init__()
-        random.seed()
         self.ALPHA = 1.0
         self.BETA = 5.0
         self.RHO_G = 0.9

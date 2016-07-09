@@ -7,7 +7,6 @@ from solver.basesolver import BaseSolver
 class Annealing(BaseSolver):
 
     def __init__(self):
-        random.seed()
         self.t_start = 1000.
         self.t_end = 0.1
         self.t_factor = 0.99

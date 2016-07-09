@@ -15,3 +15,4 @@ class CityGenerator():
                 f.write("{0} {1} {2}\n".format(len(city_dict), x, y))
                 city_dict["{0},{1}".format(x, y)] = True
         f.close()
+        random.seed()
