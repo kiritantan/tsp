@@ -51,7 +51,7 @@ class FireFlySystem(BaseSolver):
         fireflies = []
         for _ in range(firefly_num):
             rand = random.random()
-            if rand > 0.3:
+            if rand > 0.8:
                 new_gene = self.mutate_gene(gene, city_list)
                 brightness = 1 / self.cost_evaluate(new_gene, city_list)
                 fireflies.append(FireFly(new_gene, brightness))
