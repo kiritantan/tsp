@@ -8,7 +8,7 @@ class FireFlySystem(BaseSolver):
     def __init__(self):
         super().__init__()
         self.FIREFLY_NUMBER = 20
-        self.MAX_ITER = 500
+        self.MAX_ITER = 300
         self.GANMA = 0.07
         self.DESCENDANTS_NUMBER = 10
 

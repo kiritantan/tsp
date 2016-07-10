@@ -13,7 +13,7 @@ class AntColonySystem(BaseSolver):
         self.RHO_G = 0.9
         self.DETERMINISTIC_PROBABILTITY = 0.7
         self.Q = 1.0
-        self.ANT_NUMBER = 20
+        self.ANT_NUMBER = 50
         self.MAX_ITER = 30
         self.initial_pheromone = 0.1
 
@@ -21,7 +21,6 @@ class AntColonySystem(BaseSolver):
         start = self.start_time()
         self.initial_pheromone = 1 / (len(city_list) * DoubleOpt().solve(city_list)[1])
         ground = Ground(city_list, self.create_rout_cost_matrix(city_list), self.init_pheromone_matrix(len(city_list)))
-        self.ANT_NUMBER = len(city_list)
         ants = self.create_ants(ground)
         best_ant = self.run(ground, ants)
         cost = self.cost_evaluate(best_ant.route, city_list)

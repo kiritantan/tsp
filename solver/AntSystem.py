@@ -12,13 +12,12 @@ class AntSystem(BaseSolver):
         self.RHO = 0.8
         self.INITIAL_PHEROMONE = 0.1
         self.Q = 1.0
-        self.ANT_NUMBER = 20
+        self.ANT_NUMBER = 50
         self.MAX_ITER = 30
 
     def solve(self, city_list):
         start = self.start_time()
         ground = Ground(city_list, self.create_rout_cost_matrix(city_list), self.init_pheromone_matrix(len(city_list)))
-        self.ANT_NUMBER = len(city_list)
         ants = self.create_ants(ground)
         best_ant = self.run(ground, ants)
         cost = self.cost_evaluate(best_ant.route, city_list)
