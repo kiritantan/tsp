@@ -16,3 +16,4 @@ class SolverName(enum.Enum):
     HillClimbing = ()
     AntSystem = ()
     AntColonySystem = ()
+    FireFlySystem = ()

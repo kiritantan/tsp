@@ -8,6 +8,7 @@ from solver.dynamicprogramming import DynamicProgramming
 from solver.hillclimbing import HillClimbing
 from solver.antsystem import AntSystem
 from solver.antcolonysystem import AntColonySystem
+from solver.fireflysystem import FireFlySystem
 from solvername import SolverName
 
 
@@ -27,6 +28,8 @@ class SolverUser():
             self.solver = AntSystem()
         elif solver.name == "AntColonySystem":
             self.solver = AntColonySystem()
+        elif solver.name == "FireFlySystem":
+            self.solver = FireFlySystem()
         else:
             self.solver = BaseSolver()
 
