@@ -10,7 +10,7 @@ class FireFlySystem(BaseSolver):
         self.FIREFLY_NUMBER = 20
         self.MAX_ITER = 500
         self.GANMA = 0.07
-        self.DESCENDANTS_NUMBER = 8
+        self.DESCENDANTS_NUMBER = 10
 
     def solve(self, city_list):
         start = self.start_time()
@@ -63,7 +63,7 @@ class FireFlySystem(BaseSolver):
 
     def mutate_gene(self, gene, city_list):
         gene = [i for i in gene[:-1]]
-        permutation_length = 10
+        permutation_length = random.randint(2, 10)
         m = random.randrange(len(city_list) - permutation_length)
         mutate_gene = gene[:m] + list(reversed(gene[m:m + permutation_length])) + gene[m + permutation_length:]
         mutate_gene.append(mutate_gene[0])
