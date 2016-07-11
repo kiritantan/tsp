@@ -10,6 +10,7 @@ from solver.antsystem import AntSystem
 from solver.antcolonysystem import AntColonySystem
 from solver.fireflysystem import FireFlySystem
 from solver.nearestinsertion import NearestInsertion
+from solver.farthestinsertion import FarthestInsertion
 from solvername import SolverName
 
 
@@ -31,8 +32,10 @@ class SolverUser():
             self.solver = AntColonySystem()
         elif solver.name == "FireFlySystem":
             self.solver = FireFlySystem()
-        elif solver.name == "NearestNeighbor":
+        elif solver.name == "NearestInsertion":
             self.solver = NearestInsertion()
+        elif solver.name == "FarthestInsertion":
+            self.solver = FarthestInsertion()
         else:
             self.solver = BaseSolver()
 

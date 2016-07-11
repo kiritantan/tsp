@@ -17,4 +17,5 @@ class SolverName(enum.Enum):
     AntSystem = ()
     AntColonySystem = ()
     FireFlySystem = ()
-    NearestNeighbor = ()
+    NearestInsertion = ()
+    FarthestInsertion = ()
