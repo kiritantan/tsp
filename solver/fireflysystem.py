@@ -1,7 +1,7 @@
 import random
 import math
 from solver.basesolver import BaseSolver
-from solver.doubleminimumspanningtree import DoubleMinimumSpanningTree
+from solver.nearestneighbor import NearestNeighbor
 
 class FireFlySystem(BaseSolver):
 
@@ -45,7 +45,7 @@ class FireFlySystem(BaseSolver):
         return best_firefly
 
     def create_initial_firefly(self, firefly_num, city_list):
-        gene = DoubleMinimumSpanningTree().solve(city_list)[0]
+        gene = NearestNeighbor().solve(city_list)[0]
         mutate_gene = [i for i in gene]
         random.shuffle(mutate_gene)
         fireflies = []
