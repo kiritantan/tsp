@@ -7,9 +7,8 @@ class FarthestInsertion(BaseSolver):
         start = self.start_time()
         initial_city = 0
         city_number = len(city_list)
-        current_city = initial_city
         cost_matrix = self.create_cost_matrix(city_list)
-        route = [current_city, current_city]
+        route = [initial_city, initial_city]
         available_cities = [i for i in range(city_number)]
         available_cities.remove(initial_city)
         while len(route) < len(city_list):
