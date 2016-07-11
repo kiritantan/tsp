@@ -16,17 +16,17 @@ class NearestInsertion(BaseSolver):
             nearest_city = -1
             nearest_insert_index = -1
             for index in range(len(route[:-1])):
-                souce = route[index]
-                nearest_city_at_souce = available_cities[0]
+                source = route[index]
+                nearest_city_at_source = available_cities[0]
                 for dist in available_cities[1:]:
-                    if cost_matrix[souce][nearest_city_at_souce] > cost_matrix[souce][dist]:
-                        nearest_city_at_souce = dist
+                    if cost_matrix[source][nearest_city_at_source] > cost_matrix[source][dist]:
+                        nearest_city_at_source = dist
                 if nearest_city == -1:
-                    nearest_city = nearest_city_at_souce
+                    nearest_city = nearest_city_at_source
                     nearest_insert_index = index
                 else:
-                    if nearest_city > nearest_city_at_souce:
-                        nearest_city = nearest_city_at_souce
+                    if cost_matrix[source][nearest_city] > cost_matrix[source][nearest_city_at_source]:
+                        nearest_city = nearest_city_at_source
                         nearest_insert_index = index
 
             route = route[:nearest_insert_index+1] + [nearest_city] + route[nearest_insert_index+1:]
