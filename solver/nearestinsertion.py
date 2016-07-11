@@ -12,7 +12,7 @@ class NearestInsertion(BaseSolver):
         route = [current_city, current_city]
         available_cities = [i for i in range(city_number)]
         available_cities.remove(initial_city)
-        while(len(route) < len(city_list)):
+        while len(route) < len(city_list):
             nearest_city = -1
             nearest_insert_index = -1
             for index in range(len(route[:-1])):
