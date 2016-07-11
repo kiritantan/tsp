@@ -1,6 +1,6 @@
 import math
 import random
-from solver.double_opt import DoubleOpt
+from solver.doubleminimumspanningtree import DoubleMinimumSpanningTree
 from solver.basesolver import BaseSolver
 
 
@@ -19,7 +19,7 @@ class AntColonySystem(BaseSolver):
 
     def solve(self, city_list):
         start = self.start_time()
-        self.initial_pheromone = 1 / (len(city_list) * DoubleOpt().solve(city_list)[1])
+        self.initial_pheromone = 1 / (len(city_list) * DoubleMinimumSpanningTree().solve(city_list)[1])
         ground = Ground(city_list, self.create_rout_cost_matrix(city_list), self.init_pheromone_matrix(len(city_list)))
         ants = self.create_ants(ground)
         best_ant = self.run(ground, ants)

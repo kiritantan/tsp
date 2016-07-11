@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from solver.annealing import Annealing
 from solver.basesolver import BaseSolver
 from solver.counting import Counting
-from solver.double_opt import DoubleOpt
+from solver.doubleminimumspanningtree import DoubleMinimumSpanningTree
 from solver.dynamicprogramming import DynamicProgramming
 from solver.hillclimbing import HillClimbing
 from solver.antsystem import AntSystem
@@ -20,8 +20,8 @@ class SolverUser():
             self.solver = DynamicProgramming()
         elif solver.name == "Annealing":
             self.solver = Annealing()
-        elif solver.name == "DoubleOpt":
-            self.solver = DoubleOpt()
+        elif solver.name == "DoubleMinimumSpanningTree":
+            self.solver = DoubleMinimumSpanningTree()
         elif solver.name == "HillClimbing":
             self.solver = HillClimbing()
         elif solver.name == "AntSystem":

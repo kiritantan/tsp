@@ -1,16 +1,16 @@
 import random
 import math
 from solver.basesolver import BaseSolver
-from solver.double_opt import DoubleOpt
+from solver.doubleminimumspanningtree import DoubleMinimumSpanningTree
 
 class FireFlySystem(BaseSolver):
 
     def __init__(self):
         super().__init__()
         self.FIREFLY_NUMBER = 20
-        self.MAX_ITER = 300
+        self.MAX_ITER = 100
         self.GANMA = 0.07
-        self.DESCENDANTS_NUMBER = 10
+        self.DESCENDANTS_NUMBER = 8
 
     def solve(self, city_list):
         start = self.start_time()
@@ -45,7 +45,7 @@ class FireFlySystem(BaseSolver):
         return best_firefly
 
     def create_initial_firefly(self, firefly_num, city_list):
-        gene = DoubleOpt().solve(city_list)[0]
+        gene = DoubleMinimumSpanningTree().solve(city_list)[0]
         mutate_gene = [i for i in gene]
         random.shuffle(mutate_gene)
         fireflies = []

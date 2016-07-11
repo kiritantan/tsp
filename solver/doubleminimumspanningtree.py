@@ -4,7 +4,7 @@ from solver.basesolver import BaseSolver
 from mstname import MstName
 
 
-class DoubleOpt(BaseSolver):
+class DoubleMinimumSpanningTree(BaseSolver):
 
     def solve(self, city_list):
         mst_algorithm = MstName.Prim

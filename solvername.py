@@ -12,7 +12,7 @@ class SolverName(enum.Enum):
     Counting = ()
     DynamicProgramming = ()
     Annealing = ()
-    DoubleOpt = ()
+    DoubleMinimumSpanningTree = ()
     HillClimbing = ()
     AntSystem = ()
     AntColonySystem = ()
