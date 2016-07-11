@@ -20,8 +20,9 @@ class Annealing(BaseSolver):
         self.circuit = [i for i in range(len(city_list))]
         self.store_neighboor(city_list)
         circuit = self.annealing(self.circuit, city_list)
+        cost = self.cost_evaluate(circuit, city_list)
         end = self.end_time(start)
-        return (circuit, self.cost_evaluate(circuit, city_list), end)
+        return (circuit, cost, end)
 
     def annealing(self, circuit, city_list):
         city_num = len(city_list)

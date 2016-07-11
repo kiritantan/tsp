@@ -13,8 +13,9 @@ class HillClimbing(BaseSolver):
         self.circuit = [i for i in range(len(city_list))]
         self.store_neighboor(city_list)
         circuit = self.climbing(self.circuit, city_list)
+        cost = self.cost_evaluate(circuit, city_list)
         end = self.end_time(start)
-        return (circuit, self.cost_evaluate(circuit, city_list), end)
+        return (circuit, cost, end)
 
     def climbing(self, circuit, city_list):
         city_num = len(city_list)

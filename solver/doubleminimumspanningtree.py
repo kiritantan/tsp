@@ -14,8 +14,9 @@ class DoubleMinimumSpanningTree(BaseSolver):
         mst = self.create_mst(city_list, route_cost_matrix, mst_algorithm)
         euler_route = self.create_euler_route(mst)
         shortcut_euler_route = self.create_shortcut_euler_route(euler_route)
+        cost = self.cost_evaluate(shortcut_euler_route, city_list)
         end = self.end_time(start)
-        return (shortcut_euler_route, self.cost_evaluate(shortcut_euler_route, city_list), end)
+        return (shortcut_euler_route, cost, end)
 
     def create_shortcut_euler_route(self, euler_route):
         return sorted(set(euler_route), key=euler_route.index) + [0]
