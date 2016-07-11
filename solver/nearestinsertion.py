@@ -25,7 +25,7 @@ class NearestInsertion(BaseSolver):
                     nearest_city = nearest_city_at_source
                     nearest_insert_index = index
                 else:
-                    if cost_matrix[source][nearest_city] > cost_matrix[source][nearest_city_at_source]:
+                    if cost_matrix[nearest_insert_index][nearest_city] > cost_matrix[source][nearest_city_at_source]:
                         nearest_city = nearest_city_at_source
                         nearest_insert_index = index
 
