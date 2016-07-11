@@ -1,7 +1,7 @@
 from solver.basesolver import BaseSolver
 
 
-class NearestNeighbor(BaseSolver):
+class NearestInsertion(BaseSolver):
 
     def solve(self, city_list):
         start = self.start_time()
@@ -14,22 +14,20 @@ class NearestNeighbor(BaseSolver):
         available_cities.remove(initial_city)
         while(len(route) < len(city_list)):
             nearest_city = -1
-            for souce in route[:-1]:
+            nearest_insert_index = -1
+            for index in range(len(route[:-1])):
+                souce = route[index]
                 nearest_city_at_souce = available_cities[0]
                 for dist in available_cities[1:]:
                     if cost_matrix[souce][nearest_city_at_souce] > cost_matrix[souce][dist]:
                         nearest_city_at_souce = dist
                 if nearest_city == -1:
                     nearest_city = nearest_city_at_souce
+                    nearest_insert_index = index
                 else:
                     if nearest_city > nearest_city_at_souce:
                         nearest_city = nearest_city_at_souce
-
-            nearest_insert_index = 0
-            for index in range(len(route)-1):
-                if cost_matrix[nearest_insert_index][nearest_city] + cost_matrix[nearest_insert_index][nearest_city] > \
-                        cost_matrix[index][nearest_city] + cost_matrix[index][nearest_city]:
-                    nearest_insert_index = index
+                        nearest_insert_index = index
 
             route = route[:nearest_insert_index+1] + [nearest_city] + route[nearest_insert_index+1:]
             available_cities.remove(nearest_city)

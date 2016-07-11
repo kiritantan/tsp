@@ -9,6 +9,7 @@ from solver.hillclimbing import HillClimbing
 from solver.antsystem import AntSystem
 from solver.antcolonysystem import AntColonySystem
 from solver.fireflysystem import FireFlySystem
+from solver.nearestinsertion import NearestInsertion
 from solvername import SolverName
 
 
@@ -30,6 +31,8 @@ class SolverUser():
             self.solver = AntColonySystem()
         elif solver.name == "FireFlySystem":
             self.solver = FireFlySystem()
+        elif solver.name == "NearestNeighbor":
+            self.solver = NearestInsertion()
         else:
             self.solver = BaseSolver()
 
