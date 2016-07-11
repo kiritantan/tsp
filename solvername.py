@@ -19,3 +19,4 @@ class SolverName(enum.Enum):
     FireFlySystem = ()
     NearestInsertion = ()
     FarthestInsertion = ()
+    NearestNeighbor = ()
