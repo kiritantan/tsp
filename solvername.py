@@ -20,3 +20,4 @@ class SolverName(enum.Enum):
     NearestInsertion = ()
     FarthestInsertion = ()
     NearestNeighbor = ()
+    MyAntColonySystem = ()
