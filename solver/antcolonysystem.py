@@ -14,7 +14,7 @@ class AntColonySystem(BaseSolver):
         self.DETERMINISTIC_PROBABILTITY = 0.7
         self.Q = 1.0
         self.ANT_NUMBER = 50
-        self.MAX_ITER = 30
+        self.MAX_ITER = 100
         self.initial_pheromone = 0.1
 
     def solve(self, city_list):

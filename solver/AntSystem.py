@@ -13,7 +13,7 @@ class AntSystem(BaseSolver):
         self.INITIAL_PHEROMONE = 0.1
         self.Q = 1.0
         self.ANT_NUMBER = 50
-        self.MAX_ITER = 30
+        self.MAX_ITER = 100
 
     def solve(self, city_list):
         start = self.start_time()
